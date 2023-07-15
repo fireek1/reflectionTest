@@ -1,0 +1,170 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene {
+    height: 100vh;
+    width: 100vw;
+    perspective: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.room {
+    transform: translate3d(0px, -500px, 0px) rotateX(0deg) rotateZ(0deg) rotateY(0deg);
+    transform-origin: 0 500px 500px;
+}
+
+.d3 {
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.texture {
+    filter: brightness(0.5);
+}
+
+.floor {
+    width: 300px;
+    height: 1450px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(../img/floor.jpg);
+    opacity: 0.8;
+    background-size: contain;
+    transform: translate3d(-100px, 0px, 0px) rotateX(90deg);
+    backdrop-filter: blur(10px);
+}
+
+.wall {
+    width: 1450px;
+    height: 500px;
+    background-image: url(../img/wallpaper.jpg);
+    background-size: contain;
+    filter: brightness(0.2);
+    opacity: 0.9;
+}
+
+.decals {
+    background-image: url(../img/rust.png);
+    /* opacity: 0.3; */
+}
+
+.wall-left {
+    transform: translate3d(-825px, 225px, 0px) rotateY(90deg);
+}
+
+.wall-right {
+    transform: translate3d(-525px, 225px, 0px) rotateY(90deg);
+}
+
+.ceiling {
+    width: 300px;
+    height: 1450px;
+    background-image: linear-gradient(to bottom, yellow, transparent 50%), url(../img/ceiling.jpg);
+    background-size: contain;
+    transform: translate3d(-100px, -500px, 0px) rotateX(90deg);
+    filter: blur(5px) brightness(0.2);
+}
+
+.window {
+    width: 370px;
+    height: 412px;
+    background-image: url(../img/window.png);
+    background-size: cover;
+    transform: translate3d(-139px, 181px, -720px);
+}
+
+.under-window {
+    width: 300px;
+    height: 134px;
+    background-color: #948170;
+    transform: translate3d(-100px, 591px, -720px);
+}
+
+.lights {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 270px;
+    height: 400px;
+    transform: translate3d(-78px, 220px, -750px);
+    filter: blur(3px) drop-shadow(0 0mm 8mm yellow);
+}
+
+/* .light {
+    background-color: yellow;
+    width: 15px;
+    height: 5px;
+    margin-top: 7px;
+    box-shadow: 0px 0px 0px 2px yellow;
+} */
+
+.reflection-bottom {
+    transform: translate3d(-200px, 0px, 0px) rotateZ(180deg);
+}
+
+.reflection-bottom > .window {
+    transform: translate3d(-139px, -1271px, -720px);
+}
+
+.reflection-bottom > .under-window {
+    transform: translate3d(-100px, -858px, -720px);
+}
+
+.reflection-bottom > .lights {
+    transform: translate3d(-75px, -1271px, -750px);
+}
+
+.reflection-left {
+    transform: translate3d(-300px, 0px, 0px);
+}
+
+.reflection-left > .window {
+    transform: translate3d(-139px, -1271px, -720px);
+}
+
+.reflection-left > .under-window {
+    transform: translate3d(-100px, -858px, -720px);
+}
+
+.reflection-left > .lights {
+    transform: translate3d(-75px, -1271px, -750px);
+}
+
+.reflection-left > .floor {
+    opacity: 1;
+}
+
+.reflection-right {
+    transform: translate3d(300px, 0px, 0px);
+}
+
+.reflection-right > .window {
+    transform: translate3d(-139px, -1271px, -720px);
+}
+
+.reflection-right > .under-window {
+    transform: translate3d(-100px, -858px, -720px);
+}
+
+.reflection-right > .lights {
+    transform: translate3d(-75px, -1271px, -750px);
+}
+
+.reflection-right > .floor {
+    opacity: 1;
+}
